@@ -1,19 +1,19 @@
-const arr = [1,2,3];
+const nubersOfFilms = +prompt('Сколько фильмов вы уже посмотрели?', '');
 
-console.log(arr[1]);
-
-const arrObj = {
-	a:1,
-	b:2,
-	c:3
-
+const personalMovieDB = {
+	count: nubersOfFilms,
+	movies: {},
+	actors:{},
+	genres:[],
+	privat: false 
 };
-console.log(arrObj['c']);
 
+const a = prompt('Один из последних просмотренных фильмов?', ''),
+	b = prompt('Насколько оцените его?', ''),
+	c = prompt('Один из последних просмотренных фильмов?', ''),
+	d = prompt('Насколько оцените его?', '');
 
-const answers =[];
-answers[0] = prompt['Как тебя зовут?', ''];
-answers[1] = prompt['Какая твоя фамилия?', ''];
-answers[2] = prompt['Сколько тебе лет?', ''];
+personalMovieDB.movies[a] = b;
+personalMovieDB.movies[c] = d;
 
-console.log(typeof(answers));
+console.log(personalMovieDB);
