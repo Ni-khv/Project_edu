@@ -5,10 +5,22 @@
 		&_link 
 			font-size: 13px		
 	.subheader
+		&_logo 
+			display: block 
+			min-width: 100% 
+			margin-top: 16px 
+		&_official 
+			margin-top: 6px 
+			opacity: 0.5 
+			color: #FFF 
+			font-size: 13px 
+			font-style: normal 
+			font-weight: 100 
 		#call
 			display: grid
 			justify-content: end
 			text-align: right
+			
 	.promo
 		&_header
 			font-size: 60px
@@ -31,6 +43,19 @@
 		&_link 
 			font-size: 13px		
 	.subheader
+		&_logo 
+			margin-left: 50px
+			display: block 
+			min-width: 100% 
+			margin-top: 16px 
+		&_official 
+			margin-left: 52px
+			margin-top: 6px 
+			opacity: 0.5 
+			color: #FFF 
+			font-size: 13px 
+			font-style: normal 
+			font-weight: 100 
 		#call
 			display: grid
 			justify-content: end
@@ -40,8 +65,10 @@
 			font-size: 50px
 	.reasons
 		&_block
-			align-items: flex-start
+			flex-direction: column
+			align-items: center
 		&_descr
+			margin-top: 20px
 			width: 300px
 		&_block_round
 			width: 96px
@@ -59,10 +86,13 @@
 
 	
 @media (max-width: 992px)
+
+
 	.reasons
 		&_block
-			align-items: flex-start
+			align-items: center
 		&_descr
+			margin-top: 20px
 			width: 207px
 	#index
 		margin-left: -170px
