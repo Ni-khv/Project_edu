@@ -73,3 +73,41 @@ console.log(num);
 // 	return a + b;
 
 // };
+
+function sayHello(name) {
+	return 'Привет,' + name + '!';
+}
+const greeting = sayHello('Антон');
+console.log(greeting);
+
+	
+	
+function returnNeighboringNumbers(number) {
+	const prevNumber = number - 1;
+	const nextNumber = number + 1;
+	return [prevNumber, number, nextNumber];
+}
+const result = returnNeighboringNumbers(5);
+console.log(result); 
+
+function getMathResult(base, repetitions) {
+	if (typeof repetitions !== 'number' || repetitions <= 0) {
+		return base;
+	}
+
+
+	const resultArray = [];
+	for (let i = 0; i < repetitions; i++) {
+		resultArray.push(base + i * base);
+	}
+
+	return resultArray.join('---');
+}
+
+// Примеры использования функции
+console.log(getMathResult(5, 3)); // Вывод: "5---10---15"
+console.log(getMathResult(3, 10)); // Вывод: "3---6---9---12---15---18---21---24---27---30"
+console.log(getMathResult(10, 5)); // Вывод: "10---20---30---40---50"
+console.log(getMathResult(10, '5')); // Вывод: 10
+console.log(getMathResult(10, 0)); // Вывод: 10
+console.log(getMathResult(20, -5)); // Вывод: 20
