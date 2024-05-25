@@ -1,4 +1,14 @@
-const nubersOfFilms = +prompt('Сколько фильмов вы уже посмотрели?', '');
+'use strict';
+let nubersOfFilms;
+
+function start() {
+	nubersOfFilms = +prompt('Сколько фильмов вы уже посмотрели?', '');
+
+	while (nubersOfFilms == '' || nubersOfFilms == null || isNaN(nubersOfFilms)) {
+		nubersOfFilms = +prompt('Сколько фильмов вы уже посмотрели?', '');
+	}
+}
+start();
 
 const personalMovieDB = {
 	count: nubersOfFilms,
@@ -8,32 +18,44 @@ const personalMovieDB = {
 	privat: false 
 };
 
-
-for(let i=0; i < 2; i++){
-	const a = prompt('Один из последних просмотренных фильмов?', ''), 
-		b = prompt('Насколько оцените его?', '');
-	if(a !=null && b !== null && a !==''&& b !=='' &&a.length<50 && b.length<50) {
-		personalMovieDB.movies[a] = b;
-		console.log('done');
-	} else{
-		console.log('Error');
-		i--;
+function showMyDB (hidden) {
+	if (!hidden) {
+		console.log(personalMovieDB);
 	}
-
-	
-	personalMovieDB.movies[a] = b;
 }
-if(personalMovieDB.count <10){
-	console.log('Просмотрено довольно мало фильмов');
-} else if(personalMovieDB.count>=10 && personalMovieDB.count< 30){
-	console.log('Вы класический зритель');
-} else if(personalMovieDB.count>= 30){
-	console.log('Вы киноман!');
-}else 
-	console.log('Произошла ошибка!');
+showMyDB(personalMovieDB.privat);
+
+function rememberMyFilms () {
+	for(let i=0; i < 2; i++){
+		const a = prompt('Один из последних просмотренных фильмов?', ''), 
+			b = prompt('Насколько оцените его?', '');
+		if(a !=null && b !== null && a !==''&& b !=='' &&a.length<50 && b.length<50) {
+			personalMovieDB.movies[a] = b;
+			console.log('done');
+		} else{
+			console.log('Error');
+			i--;
+		}
+	}
+}
+rememberMyFilms();
 
 
-console.log(personalMovieDB);
+
+function detectPersonalLavel() {
+	if(personalMovieDB.count <10){
+		console.log('Просмотрено довольно мало фильмов');
+	} else if(personalMovieDB.count>=10 && personalMovieDB.count< 30){
+		console.log('Вы класический зритель');
+	} else if(personalMovieDB.count>= 30){
+		console.log('Вы киноман!');
+	}else 
+		console.log('Произошла ошибка!');
+	
+	
+	console.log(personalMovieDB);
+}
+detectPersonalLavel();
 
 // const num = 50;
 // switch (num) {
@@ -52,14 +74,14 @@ console.log(personalMovieDB);
 // }
 
 // Пример работы функции
-let num =20;
+// let num =20;
 
-function showFirstMessage(text){
-	console.log(text);
-	num =10;
-}
-showFirstMessage('Hello World');
-console.log(num);
+// function showFirstMessage(text){
+// 	console.log(text);
+// 	num =10;
+// }
+// showFirstMessage('Hello World');
+// console.log(num);
 
 // function calc(a,b){
 // 	return(a+b);
@@ -74,40 +96,42 @@ console.log(num);
 
 // };
 
-function sayHello(name) {
-	return 'Привет,' + name + '!';
-}
-const greeting = sayHello('Антон');
-console.log(greeting);
+// function sayHello(name) {
+// 	return 'Привет,' + name + '!';
+// }
+// const greeting = sayHello('Антон');
+// console.log(greeting);
 
 	
 	
-function returnNeighboringNumbers(number) {
-	const prevNumber = number - 1;
-	const nextNumber = number + 1;
-	return [prevNumber, number, nextNumber];
-}
-const result = returnNeighboringNumbers(5);
-console.log(result); 
+// function returnNeighboringNumbers(number) {
+// 	const prevNumber = number - 1;
+// 	const nextNumber = number + 1;
+// 	return [prevNumber, number, nextNumber];
+// }
+// const result = returnNeighboringNumbers(5);
+// console.log(result); 
 
-function getMathResult(base, repetitions) {
-	if (typeof repetitions !== 'number' || repetitions <= 0) {
-		return base;
-	}
+// function getMathResult(base, repetitions) {
+// 	if (typeof repetitions !== 'number' || repetitions <= 0) {
+// 		return base;
+// 	}
 
 
-	const resultArray = [];
-	for (let i = 0; i < repetitions; i++) {
-		resultArray.push(base + i * base);
-	}
+// 	const resultArray = [];
+// 	for (let i = 0; i < repetitions; i++) {
+// 		resultArray.push(base + i * base);
+// 	}
 
-	return resultArray.join('---');
-}
+// 	return resultArray.join('---');
+// }
 
-// Примеры использования функции
-console.log(getMathResult(5, 3)); // Вывод: "5---10---15"
-console.log(getMathResult(3, 10)); // Вывод: "3---6---9---12---15---18---21---24---27---30"
-console.log(getMathResult(10, 5)); // Вывод: "10---20---30---40---50"
-console.log(getMathResult(10, '5')); // Вывод: 10
-console.log(getMathResult(10, 0)); // Вывод: 10
-console.log(getMathResult(20, -5)); // Вывод: 20
+// // Примеры использования функции
+// console.log(getMathResult(5, 3)); // Вывод: "5---10---15"
+// console.log(getMathResult(3, 10)); // Вывод: "3---6---9---12---15---18---21---24---27---30"
+// console.log(getMathResult(10, 5)); // Вывод: "10---20---30---40---50"
+// console.log(getMathResult(10, '5')); // Вывод: 10
+// console.log(getMathResult(10, 0)); // Вывод: 10
+// console.log(getMathResult(20, -5)); // Вывод: 20
+
+
