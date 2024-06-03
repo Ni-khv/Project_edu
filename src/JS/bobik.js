@@ -1,61 +1,61 @@
 'use strict';
-let nubersOfFilms;
+// let nubersOfFilms;
 
-function start() {
-	nubersOfFilms = +prompt('Сколько фильмов вы уже посмотрели?', '');
+// function start() {
+// 	nubersOfFilms = +prompt('Сколько фильмов вы уже посмотрели?', '');
 
-	while (nubersOfFilms == '' || nubersOfFilms == null || isNaN(nubersOfFilms)) {
-		nubersOfFilms = +prompt('Сколько фильмов вы уже посмотрели?', '');
-	}
-}
-start();
+// 	while (nubersOfFilms == '' || nubersOfFilms == null || isNaN(nubersOfFilms)) {
+// 		nubersOfFilms = +prompt('Сколько фильмов вы уже посмотрели?', '');
+// 	}
+// }
+// start();
 
-const personalMovieDB = {
-	count: nubersOfFilms,
-	movies: {},
-	actors:{},
-	genres:[],
-	privat: false 
-};
+// const personalMovieDB = {
+// 	count: nubersOfFilms,
+// 	movies: {},
+// 	actors:{},
+// 	genres:[],
+// 	privat: false 
+// };
 
-function showMyDB (hidden) {
-	if (!hidden) {
-		console.log(personalMovieDB);
-	}
-}
-showMyDB(personalMovieDB.privat);
+// function showMyDB (hidden) {
+// 	if (!hidden) {
+// 		console.log(personalMovieDB);
+// 	}
+// }
+// showMyDB(personalMovieDB.privat);
 
-function rememberMyFilms () {
-	for(let i=0; i < 2; i++){
-		const a = prompt('Один из последних просмотренных фильмов?', ''), 
-			b = prompt('Насколько оцените его?', '');
-		if(a !=null && b !== null && a !==''&& b !=='' &&a.length<50 && b.length<50) {
-			personalMovieDB.movies[a] = b;
-			console.log('done');
-		} else{
-			console.log('Error');
-			i--;
-		}
-	}
-}
-rememberMyFilms();
+// function rememberMyFilms () {
+// 	for(let i=0; i < 2; i++){
+// 		const a = prompt('Один из последних просмотренных фильмов?', ''), 
+// 			b = prompt('Насколько оцените его?', '');
+// 		if(a !=null && b !== null && a !==''&& b !=='' &&a.length<50 && b.length<50) {
+// 			personalMovieDB.movies[a] = b;
+// 			console.log('done');
+// 		} else{
+// 			console.log('Error');
+// 			i--;
+// 		}
+// 	}
+// }
+// rememberMyFilms();
 
 
 
-function detectPersonalLavel() {
-	if(personalMovieDB.count <10){
-		console.log('Просмотрено довольно мало фильмов');
-	} else if(personalMovieDB.count>=10 && personalMovieDB.count< 30){
-		console.log('Вы класический зритель');
-	} else if(personalMovieDB.count>= 30){
-		console.log('Вы киноман!');
-	}else 
-		console.log('Произошла ошибка!');
+// function detectPersonalLavel() {
+// 	if(personalMovieDB.count <10){
+// 		console.log('Просмотрено довольно мало фильмов');
+// 	} else if(personalMovieDB.count>=10 && personalMovieDB.count< 30){
+// 		console.log('Вы класический зритель');
+// 	} else if(personalMovieDB.count>= 30){
+// 		console.log('Вы киноман!');
+// 	}else 
+// 		console.log('Произошла ошибка!');
 	
 	
-	console.log(personalMovieDB);
-}
-detectPersonalLavel();
+// 	console.log(personalMovieDB);
+// }
+// detectPersonalLavel();
 
 // const num = 50;
 // switch (num) {
@@ -102,7 +102,7 @@ detectPersonalLavel();
 // const greeting = sayHello('Антон');
 // console.log(greeting);
 
-	
+//__________________________________________________________________________________________________________________________________________________	
 	
 // function returnNeighboringNumbers(number) {
 // 	const prevNumber = number - 1;
@@ -133,5 +133,32 @@ detectPersonalLavel();
 // console.log(getMathResult(10, '5')); // Вывод: 10
 // console.log(getMathResult(10, 0)); // Вывод: 10
 // console.log(getMathResult(20, -5)); // Вывод: 20
+//__________________________________________________________________________________________________________________________________________________
+const option = {
+	name: 'test',
+	width : 1024,
+	height: 1024,
+	colors: {
+		border: 'black',
+		bg: 'red'
+	}
 
+};
+//Деструктуризация объекта. Пример:
+const {border,bg} = option.colors;
+console.log(border, bg);
+// console.log(Object.keys(option).length);
+// console.log(option.name);
+// delete option.name;
+// console.log(option);
 
+for (let key in option){
+	if (typeof(option[key]) === 'object'){
+		for(let i in option[key]){
+			console.log(`Свойство ${i} имеет значение ${option[key][i]}`);
+		}
+	} else{
+		console.log(`Свойство ${key} имеет значение ${option[key]}`);
+	}
+	
+}
